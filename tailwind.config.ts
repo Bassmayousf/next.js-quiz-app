@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
+// const {fontFamily}= require("tailwindcss/defaultTheme")
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,13 +10,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+    
+      fontFamily:{
+        quicksand:['var(--font-quicksand)',...defaultTheme.fontFamily.sans]
+      }
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
 export default config;
